@@ -1,1 +1,2 @@
-# Softuni_C-Programming_2017
+# Softuni_C++Programming_2017
+
