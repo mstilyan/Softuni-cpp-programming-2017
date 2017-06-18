@@ -5,6 +5,8 @@
 #include <unordered_map>
 
 using namespace std;
+typedef TeamName std::string;
+typedef PlayerName std::string;
 
 int main(int argc, char* argv[])
 {
@@ -12,37 +14,32 @@ int main(int argc, char* argv[])
 	std::cout.sync_with_stdio(false);
 
 	int numberOfTeams;
-	unordered_map<string, vector<string> > teamPlayers;
-	unordered_map<string, int> teamWins;
-	map<string, vector<string> > playerTeams;
+	unordered_map<TeamName, int> teamWins;
+	map<PlayerName, vector<TeamName> > playerTeams;
 
 	std::cin >> numberOfTeams;
 	for (int i = 0; i < numberOfTeams; ++i)
 	{
-		string name;
+		TeamName name;
 		int playersCount;
-		cin >> name >> playersCount;
+		std::cin >> name >> playersCount;
 		teamWins[name] = 0;
-		std::vector<string> singleTeam(playersCount);
 
 		for (int i = 0; i < playersCount; ++i)
 		{
-			string plr;
+			PlayerName plr;
 			std::cin >> plr;
-			singleTeam.push_back(plr);
 			playerTeams[plr].push_back(name);
 		}
-
-		teamPlayers[name] = singleTeam;
 	}
 
 	int games;
-	cin >> games;
+	std::cin >> games;
 
 	for (int i = 0; i < games; ++i)
 	{
-		string winner;
-		cin >> winner;
+		TeamName winner;
+		std::cin >> winner;
 		++teamWins[winner];
 	}
 
