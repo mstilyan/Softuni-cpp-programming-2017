@@ -5,8 +5,8 @@
 #include <unordered_map>
 
 using namespace std;
-typedef TeamName std::string;
-typedef PlayerName std::string;
+typedef std::string TeamName;
+typedef std::string PlayerName;
 
 int main(int argc, char* argv[])
 {
